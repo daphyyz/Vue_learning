@@ -1,12 +1,8 @@
 <template>
     <div class="menu">
-        <!-- <a>Home</a>
-    <a>Products</a>
-    <a>About</a> -->
         <!-- <a v-for="item in 3" :key="item">Home</a> -->
         <a v-for="(item, idx) in menus" :key="idx">{{ item }}</a>
     </div>
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <div v-for="(item, idx) in products" :key="idx">
         <h4>{{ item.name }}</h4>
         <p>{{ item.price }}만원</p>
