@@ -6,7 +6,9 @@ new Vue({
         count: 3,
         winner: null,
         lifeOfMe: 3,
-        lifeOfCom: 3
+        lifeOfCom: 3,
+        isSelectable : true,
+        logs: []
     },
     watch: {
         count: function (newVal) {
@@ -38,12 +40,24 @@ new Vue({
                 } else if(this.winner === 'com') {
                     this.lifeOfMe --
                 }
+                this.count = 3
+                // 버튼 다시 보이게 됨
+                this.isSelectable = true
+
+                let log = {
+                    message: `You : ${this.myChoice}, Computer: ${this.comChoice}`,
+                    winner: this.winner
+                }                
+                //this.logs.push(log)
+                this.logs.unshift(log) // 역순
 
             }
         }
     },
     methods: {
         startGame: function() {
+            // 버튼이 보이지 않음
+            this.isSelectable = false
             if(this.myChoice === null) {
                 alert('가위 바위 보 중 하나를 선택해주세요.')
             } else {
